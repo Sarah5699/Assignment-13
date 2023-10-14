@@ -1,0 +1,21 @@
+<div class="container">
+    <div *ngIf="data" class="mg-main-light p-4 my-4">
+        <div *ngFor="let product of data" class="row align-items-center border-bottom py-3">
+            <div class="col-md-2">
+                <img class="img-fluid" [src]="product?.imageCover">
+            </div>
+            <div class="col-md-8">
+                <h4 class="fw-bolder">{{product.title}}</h4>
+                <h6 class="text-main fw-bold">{{product.price}}EGP</h6>
+                <button (click)="removeProductFromWishlist(product.id)" class="btn m-0 p-0">
+                    <i class="fa-regular fa-trash-can text-main"></i>
+                    Remove
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button (click)="addToCart(product.id)" class="border-main bg-white p-3 rounded fw-bold">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</div>
+

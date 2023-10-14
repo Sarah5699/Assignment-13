@@ -1,0 +1,19 @@
+<div class="container pt-5">
+    <form class="pt-5" *ngIf="!firstStep" action="" [formGroup]="forgetPassword" (ngSubmit)="forgetPass(forgetPassword)">
+        <label for="email">Email: </label>
+        <input class="form-control mb-3" type="text" id="email" formControlName="email">
+        <button class="btn border-main p-2">Send Verification Code</button>
+    </form>
+    <form class="pt-5" *ngIf="firstStep && !secondStep"  action="" [formGroup]="resetCodeForm" (ngSubmit)="verifyCode(resetCodeForm)">
+        <label for="resetcode">Please Enter Your Verification Code</label>
+        <input class="form-control mb-3" type="text" id="resetCode" formControlName="resetCode">
+        <button class="btn border-main p-2">Verify</button>
+    </form>
+    <form class="pt-5" *ngIf="firstStep && secondStep" action="" [formGroup]="resetPasword" (ngSubmit)="resetPass(resetPasword)">
+        <label for="email">Email: </label>
+        <input class="form-control mb-3" type="text" id="email" formControlName="email">
+        <label for="newPassword">New Password: </label>
+        <input class="form-control mb-3" type="text" id="newPassword" formControlName="newPassword">
+        <button class="btn border-main p-2">Reset Password</button>
+    </form>
+</div>

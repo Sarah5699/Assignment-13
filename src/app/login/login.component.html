@@ -1,0 +1,17 @@
+<div class="login container">
+    <h2>Login Now: </h2>
+    <form [formGroup]="loginForm" action="">
+        <label for="email">Email: </label>
+        <input class="form-control" formControlName="email" id="email" type="text">
+        <label for="pass">Password: </label>
+        <input class="form-control" formControlName="password" id="pass" type="text">
+        <div class="d-flex p-4">
+            <a routerLink="/forgetPass" class="h5 forget text-decoration-none cursor-pointer">forget your password ?</a>
+            <button (click)="handleLogin(loginForm)" class="btn bg-main d-block ms-auto text-white" type="submit">
+                <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                <span *ngIf="!isLoading">Login Now</span>
+            </button>
+        </div>
+    </form>
+    <P class="p-3" *ngIf="loginErr != ''">{{loginErr}}</P>
+</div>

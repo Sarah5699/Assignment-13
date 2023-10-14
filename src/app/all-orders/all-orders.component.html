@@ -1,0 +1,26 @@
+<div *ngIf="data" class="mg-main-light p-4 my-4">
+    <h3>All Orders</h3>
+    <div class="d-flex">
+        <h6>Total Price:<span class="text-main">{{data.totalCartPrice}} EGP</span></h6>
+        <h6>Total Number of Items:<span class="text-main">{{data.count}}</span></h6>
+    </div>
+    <div *ngFor="let product of data.products" class="row align-items-center border-bottom py-3">
+        <div class="col-md-1">
+            <img class="img-fluid" [src]="product?.product.imageCover">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between">
+            <h6>{{product.title}}</h6>
+            <h6 class="text-main">Price: {{product.price}}</h6>
+            <button class="btn m-0 p-0">
+                <i class="fa-regular fa-trash-can text-main"></i>
+                Remove
+            </button>
+        </div>
+        <div>
+            <button class="btn border-main btn-sm">+</button>
+            <span class="mx-2">{{product.count}}</span>
+            <button class="btn border-main btn-sm">-</button>
+        </div>
+    </div>
+    <button class="btn d-block mx-auto border-main ">Clear Your Cart</button>
+</div>

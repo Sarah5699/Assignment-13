@@ -1,0 +1,60 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex">
+        <div class="d-flex flex-row">
+            <a class="navbar-brand" href="#"><img src="../../assets/Images/freshcart-logo.svg" alt=""></a>
+            <ul *ngIf="isLogin" class="navbar-nav d-flex flex-row me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="home">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="cart">Cart</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="wishList">Wish List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="products">Products</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" routerLink="categories">Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="brands">Brands</a>
+                </li>
+            </ul>
+        </div>
+        <div class="d-flex flex-row align-items-baseline">
+            <ul class="list-unstyled d-flex flex-row ms-auto align-items-baseline">
+                <li>
+                    <i class="fab fa-instagram"></i>
+                </li>
+                <li class="mx-2">
+                    <i class="fab fa-facebook"></i>
+                </li>
+                <li>
+                    <i class="fab fa-pinterest"></i>
+                </li>
+                <li class="mx-2">
+                    <i class="fab fa-twitter"></i>
+                </li>
+                <li>
+                    <i class="fab fa-linkedin"></i>
+                </li>
+                <li class="mx-2">
+                    <i class="fab fa-youtube"></i>
+                </li>
+                <li>
+                    <a *ngIf="isLogin" class="position-relative cart">
+                        <i class="fas fa-cart-shopping fa-xl text-black-50"></i>
+                        <span class="badge bg-main text-white position-absolute top-0 end-0">{{numOfCartItems}}</span>
+                    </a>
+                </li>
+            </ul>
+            <div>
+                <a *ngIf="!isLogin" class="text-decoration-none text-black-50 me-2" routerLink="login">Login</a>
+                <a *ngIf="!isLogin" class="text-decoration-none text-black-50" routerLink="regester">Register</a>
+                <a (click)="logout()" *ngIf="isLogin" class="text-decoration-none text-black-50">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
